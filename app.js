@@ -1,10 +1,13 @@
+// Change number of myths when add another
+const numMyths = 2;
+
 const heroes = ['Jason', 'Heracles', 'Perseus', 'Theseus', 'Luke Skywalker', 'Greg'];
 const cities = ['Thebes', 'Ephesus', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'];
 const creatures = ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'];
 
 const numGenerator = numOptions => Math.floor(Math.random() * numOptions);
 
-const formatMyth = () => {
+const creatureMyth = () => {
     const hero = heroes[numGenerator(heroes.length)];
     const city = cities[numGenerator(cities.length)];
     const creature = creatures[numGenerator(creatures.length)];
@@ -17,9 +20,15 @@ ${creature}'s hide to wear. To this day the area around ${city} is sometimes cal
     return template;
 };
 
+const plagueMyth = () => {};
+
 const generateMyth = () => {
-    // will be used to pick a template when more than 1 is available
-    console.log(formatMyth());
+    const choice = numGenerator(numMyths);
+    if (choice === 0) {
+        console.log(creatureMyth());
+    } else {
+        console.log(plagueMyth());
+    }
 };
 
 generateMyth();
