@@ -18,7 +18,8 @@ const creatureMyth = () => {
     const hero = heroes[numGenerator(heroes.length)];
     const city = cities[numGenerator(cities.length)];
     const creature = creatures[numGenerator(creatures.length)];
-    const template = `The great hero ${hero} was traveling near the city of ${city} when he heard \
+    const template = `${hero} and the ${creature}\n\n\
+The great hero ${hero} was traveling near the city of ${city} when he heard \
 that the city was being menaced by a vicious ${creature}. The ${creature} would lurk at the outskirts \
 of the city and eat anyone who dared to come near. But ${hero} was not deterred and set out to \
 confront the ${creature}. They fought a great battle! But through his strength and cunning ${hero} was \
@@ -31,7 +32,8 @@ const plagueMyth = () => {
     const god = gods[numGenerator(gods.length)];
     const city = cities[numGenerator(cities.length)];
     const plague = plagues[numGenerator(plagues.length)];
-    const template = `The king of ${city} once angered ${god.name} by refusing to make sacrifices to ${god.pronoun[1]}. \
+    const template = `The plague of ${plague}\n\n\
+The king of ${city} once angered ${god.name} by refusing to make sacrifices to ${god.pronoun[1]}. \
 "${god.name} is a powerless god" he declared, "and ${god.possessive} altar will see no offerings from \
 us." As punishment, ${god.name} sent a plague of ${plague} against the city. For three weeks the plague raged, and \
 the citizens of ${city} beseeched the king to change his mind. Finally, realizing his hubris, the king ordered \
