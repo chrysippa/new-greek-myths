@@ -11,6 +11,11 @@ const gods = [
     {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his'},
     {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his'}
 ];
+const mortals = [
+    {},
+    {},
+    {}
+];
 
 const numGenerator = numOptions => Math.floor(Math.random() * numOptions);
 
@@ -38,11 +43,13 @@ The king of ${city} once angered ${god.name} by refusing to make sacrifices to $
 us." As punishment, ${god.name} sent a plague of ${plague} against the city. For three weeks the plague raged, and \
 the citizens of ${city} beseeched the king to change his mind. Finally, realizing his hubris, the king ordered \
 sacrifices to be made. At once the plague ceased - no trace of ${plague} could be found in the city. Ever after \
-${city} held a yearly festival in honor of ${god.name}, ${god.pronoun[0]} who sends ${plague}.`;
+${city} held a yearly festival to honor the power of ${god.name}, ${god.pronoun[0]} who sends ${plague}.`;
     return template;
 };
 
 const giftOfImmortalityMyth = () => {
+    const god = gods[numGenerator(gods.length)];
+    const mortal = mortals[numGenerator(mortals.length)];
     const template = ``;
     return template;
 };
