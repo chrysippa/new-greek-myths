@@ -2,8 +2,15 @@
 const numMyths = 2;
 
 const heroes = ['Jason', 'Heracles', 'Perseus', 'Theseus', 'Luke Skywalker', 'Greg'];
-const cities = ['Thebes', 'Ephesus', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'];
+const cities = ['Thebes', 'London', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'];
 const creatures = ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'];
+const plagues = ['fever', 'rubber ducks', 'locusts', 'hiccups'];
+const gods = [
+    {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his'}, 
+    {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her'},
+    {name: 'Hera', pronoun: ['she', 'her'], possessive: 'her'},
+    {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his'}
+];
 
 const numGenerator = numOptions => Math.floor(Math.random() * numOptions);
 
@@ -20,7 +27,18 @@ ${creature}'s hide to wear. To this day the area around ${city} is sometimes cal
     return template;
 };
 
-const plagueMyth = () => {};
+const plagueMyth = () => {
+    const god = gods[numGenerator(gods.length)];
+    const city = cities[numGenerator(cities.length)];
+    const plague = plagues[numGenerator(plagues.length)];
+    const template = `The king of ${city} once angered ${god.name} by refusing to make sacrifices to ${god.pronoun[1]}. \
+"${god.name} is a powerless god" he declared, "and ${god.possessive} altar will see no offerings from \
+us." As punishment, ${god.name} sent a plague of ${plague} against the city. For three weeks the plague raged, and \
+the citizens of ${city} beseeched the king to change his mind. Finally, realizing his hubris, the king ordered \
+sacrifices to be made. At once the plague ceased - no trace of ${plague} could be found in the city. Ever after \
+${city} held a yearly festival in honor of ${god.name}, ${god.pronoun[0]} who sends ${plague}.`;
+    return template;
+};
 
 const generateMyth = () => {
     const choice = numGenerator(numMyths);
