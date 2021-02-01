@@ -1,6 +1,6 @@
-// Change number of myths when add another
-const numMyths = 2;
+const numMyths = 3;
 
+// arrays of people, places and things to be used in myths
 const heroes = ['Jason', 'Heracles', 'Perseus', 'Theseus', 'Luke Skywalker', 'Greg'];
 const cities = ['Thebes', 'London', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'];
 const creatures = ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'];
@@ -8,7 +8,7 @@ const plagues = ['fever', 'rubber ducks', 'locusts', 'hiccups'];
 const gods = [
     {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his'}, 
     {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her'},
-    {name: 'Hera', pronoun: ['she', 'her'], possessive: 'her'},
+    {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his'},
     {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his'}
 ];
 
@@ -42,12 +42,19 @@ ${city} held a yearly festival in honor of ${god.name}, ${god.pronoun[0]} who se
     return template;
 };
 
+const giftOfImmortalityMyth = () => {
+    const template = ``;
+    return template;
+};
+
 const generateMyth = () => {
     const choice = numGenerator(numMyths);
     if (choice === 0) {
         console.log(creatureMyth());
-    } else {
+    } else if (choice === 1) {
         console.log(plagueMyth());
+    } else {
+        console.log(giftOfImmortalityMyth());
     }
 };
 
