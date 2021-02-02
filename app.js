@@ -46,7 +46,7 @@ The king of ${city} once angered ${god.name} by refusing to make sacrifices \
 to ${god.pronoun[1]}. "${god.name} is a powerless god${god.suffix}" he declared, "and \
 ${god.possessive} altar will see no offerings from us." As punishment, \
 ${god.name} sent a plague of ${plague} against the city. For three weeks the \
-plague raged, and the citizens of ${city} beseeched the king to chang0e his \
+plague raged, and the citizens of ${city} beseeched the king to change his \
 mind. Finally, realizing his hubris, the king ordered sacrifices to be made. \
 At once the plague ceased - no trace of ${plague} could be found in the city. \
 Ever after ${city} held a yearly festival to honor the power of ${god.name}, \

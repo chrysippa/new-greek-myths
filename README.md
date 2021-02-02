@@ -8,6 +8,8 @@ Example output:
 
 ![screenshot of output](./example.png)
 
+Or (try it online)[https://repl.it/@chrysippa/new-greek-myths]! 
+
 ## Technologies
 * JavaScript (ES6)
 * Node.js 14.15.3
