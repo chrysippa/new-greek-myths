@@ -1,5 +1,5 @@
 # New Greek Myths
-A random text generator to create new versions of old myths. :amphora: :classical_building: Sometimes they read like the real thing... sometimes they don't.
+A random text generator to create new versions of old myths. :amphora: :classical_building: :greece: Sometimes they read like the real thing... sometimes they don't.
 
 ## General info
 This is a command-line program to be run with Node.js - simply run it and the myth is printed.
