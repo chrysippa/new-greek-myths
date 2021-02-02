@@ -6,10 +6,10 @@ const cities = ['Thebes', 'London', 'Sparta', 'Corinth', 'Argos', 'Los Angeles']
 const creatures = ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'];
 const plagues = ['fever', 'rubber ducks', 'locusts', 'hiccups'];
 const gods = [
-    {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his'}, 
-    {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her'},
-    {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his'},
-    {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his'}
+    {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}, 
+    {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her', suffix: 'dess'},
+    {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his', suffix: ''},
+    {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}
 ];
 const mortals = [
     {name: 'Hilarion', pronoun: ['he', 'him'], possessive: 'his'},
@@ -43,7 +43,7 @@ const plagueMyth = () => {
     const plague = plagues[numGenerator(plagues.length)];
     const template = `\nThe plague of ${plague}\n\n\
 The king of ${city} once angered ${god.name} by refusing to make sacrifices \
-to ${god.pronoun[1]}. "${god.name} is a powerless god" he declared, "and \
+to ${god.pronoun[1]}. "${god.name} is a powerless god${god.suffix}" he declared, "and \
 ${god.possessive} altar will see no offerings from us." As punishment, \
 ${god.name} sent a plague of ${plague} against the city. For three weeks the \
 plague raged, and the citizens of ${city} beseeched the king to chang0e his \
@@ -59,7 +59,7 @@ const immortalityMyth = () => {
     const mortal = mortals[numGenerator(mortals.length)];
     const instrument = instruments[numGenerator(instruments.length)];
     const template = `\n${god.name} and ${mortal.name}\n\n
-The god ${god.name} once fell in love with a mortal, ${mortal.name}, who was \
+The god${god.suffix} ${god.name} once fell in love with a mortal, ${mortal.name}, who was \
 renowned not only for ${mortal.possessive} beauty but also for \
 ${mortal.possessive} talent at playing the ${instrument}. Afraid to \
 lose ${mortal.name}, ${god.name} begged Zeus to grant ${mortal.pronoun[1]} \
@@ -86,5 +86,4 @@ const generateMyth = () => {
     }
 };
 
-//generateMyth();
-console.log(immortalityMyth());
+generateMyth();
