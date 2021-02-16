@@ -19,7 +19,6 @@ Project is: _in progress_. (Any good story needs illustrations!)
 
 To-do list:
 * Add pictures
-* Modify gender handling to be more DRY
 
 ## Inspiration
 This project fulfills the requirements of Codecademy's Mixed Messages project in the [Back-End Engineer](https://www.codecademy.com/learn/paths/back-end-engineer-career-path) path.
