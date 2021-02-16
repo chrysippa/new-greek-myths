@@ -1,30 +1,36 @@
 const numMyths = 3;
 
-// arrays of people, places and things to be used in myths
-const heroes = ['Jason', 'Heracles', 'Perseus', 'Theseus', 'Luke Skywalker', 'Greg'];
-const cities = ['Thebes', 'London', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'];
-const creatures = ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'];
-const plagues = ['fever', 'rubber ducks', 'locusts', 'hiccups'];
-const gods = [
-    {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}, 
-    {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her', suffix: 'dess'},
-    {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his', suffix: ''},
-    {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}
-];
-const mortals = [
-    {name: 'Hilarion', pronoun: ['he', 'him'], possessive: 'his'},
-    {name: 'Euanthe', pronoun: ['she', 'her'], possessive: 'her'},
-    {name: 'Korinna', pronoun: ['she', 'her'], possessive: 'her'},
-    {name: 'Kallias', pronoun: ['he', 'him'], possessive: 'his'}
-];
-const instruments = ['kithara', 'aulos flute', 'Casio CT-S200 keyboard', 'bongo drum'];
+const choices = {
+    heroes: ['Jason', 'Heracles', 'Perseus', 'Theseus', 'Luke Skywalker', 'Greg'],
+    cities: ['Thebes', 'London', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'],
+    creatures: ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'],
+    plagues: ['fever', 'rubber ducks', 'locusts', 'hiccups'],
+    instruments: ['kithara', 'aulos flute', 'Casio CT-S200 keyboard', 'bongo drum'],
+    gods: [
+        {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}, 
+        {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her', suffix: 'dess'},
+        {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his', suffix: ''},
+        {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}
+    ],
+    mortals: [
+        {name: 'Hilarion', pronoun: ['he', 'him'], possessive: 'his'},
+        {name: 'Euanthe', pronoun: ['she', 'her'], possessive: 'her'},
+        {name: 'Korinna', pronoun: ['she', 'her'], possessive: 'her'},
+        {name: 'Kallias', pronoun: ['he', 'him'], possessive: 'his'}
+    ]
+};
 
 const numGenerator = numOptions => Math.floor(Math.random() * numOptions);
 
+const pickFrom = list => {
+    const index = numGenerator(choices[list].length);
+    return choices[list][index];
+};
+
 const creatureMyth = () => {
-    const hero = heroes[numGenerator(heroes.length)];
-    const city = cities[numGenerator(cities.length)];
-    const creature = creatures[numGenerator(creatures.length)];
+    const hero = pickFrom('heroes');
+    const city = pickFrom('cities');
+    const creature = pickFrom('creatures');
     const template = `\n${hero} and the ${creature}\n\n`+
     `The great hero ${hero} was traveling near the city of ${city} when he `+
     `heard that the city was being menaced by a vicious ${creature}. The `+
@@ -39,9 +45,9 @@ const creatureMyth = () => {
 };
 
 const plagueMyth = () => {
-    const god = gods[numGenerator(gods.length)];
-    const city = cities[numGenerator(cities.length)];
-    const plague = plagues[numGenerator(plagues.length)];
+    const god = pickFrom('gods');
+    const city = pickFrom('cities');
+    const plague = pickFrom('plagues');
     const template = `\nThe plague of ${plague}\n\n`+
     `The king of ${city} once angered ${god.name} by refusing to make `+
     `sacrifices to ${god.pronoun[1]}. "${god.name} is a powerless `+
@@ -57,9 +63,9 @@ const plagueMyth = () => {
 };
 
 const immortalityMyth = () => {
-    const god = gods[numGenerator(gods.length)];
-    const mortal = mortals[numGenerator(mortals.length)];
-    const instrument = instruments[numGenerator(instruments.length)];
+    const god = pickFrom('gods');
+    const mortal = pickFrom('mortals');
+    const instrument = pickFrom('instruments');
     const template = `\n${god.name} and ${mortal.name}\n\n`+
     `The god${god.suffix} ${god.name} once fell in love with a mortal, `+
     `${mortal.name}, who was renowned not only for ${mortal.possessive} `+
