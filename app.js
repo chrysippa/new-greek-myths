@@ -76,14 +76,20 @@ decision and immortalized ${mortal.name}, who became a minor deity of music.`;
 };
 
 const generateMyth = () => {
-    const choice = numGenerator(numMyths);
-    if (choice === 0) {
-        console.log(creatureMyth());
-    } else if (choice === 1) {
-        console.log(plagueMyth());
-    } else {
-        console.log(immortalityMyth());
+    const randNum = numGenerator(numMyths);
+    let story;
+    switch (randNum) {
+        case 0:
+            story = creatureMyth();
+            break;
+        case 1:
+            story = plagueMyth();
+            break;
+        case 2:
+            story = immortalityMyth();
+            break;
     }
+    console.log(story);
 };
 
 generateMyth();
