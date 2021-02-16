@@ -1,46 +1,72 @@
 const numMyths = 3;
 
 const choices = {
-    heroes: ['Jason', 'Heracles', 'Perseus', 'Theseus', 'Luke Skywalker', 'Greg'],
     cities: ['Thebes', 'London', 'Sparta', 'Corinth', 'Argos', 'Los Angeles'],
     creatures: ['minotaur', 'hydra', 'poodle', 'chimera', 'pgymy goat', 'rabbit'],
     plagues: ['fever', 'rubber ducks', 'locusts', 'hiccups'],
     instruments: ['kithara', 'aulos flute', 'Casio CT-S200 keyboard', 'bongo drum'],
+    heroes: [
+        {name: 'Jason', gender: 'm'},
+        {name: 'Heracles', gender: 'm'},
+        {name: 'Perseus', gender: 'm'},
+        {name: 'Theseus', gender: 'm'},
+        {name: 'Luke Skywalker', gender: 'm'},
+        {name: 'Greg', gender: 'm'},
+    ],
     gods: [
-        {name: 'Apollo', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}, 
-        {name: 'Aphrodite', pronoun: ['she', 'her'], possessive: 'her', suffix: 'dess'},
-        {name: 'Hephaestus', pronoun: ['he', 'him'], possessive: 'his', suffix: ''},
-        {name: 'Hermes', pronoun: ['he', 'him'], possessive: 'his', suffix: ''}
+        {name: 'Apollo', gender: 'm'}, 
+        {name: 'Aphrodite', gender: 'f'},
+        {name: 'Hephaestus', gender: 'm'},
+        {name: 'Hermes', gender: 'm'}
     ],
     mortals: [
-        {name: 'Hilarion', pronoun: ['he', 'him'], possessive: 'his'},
-        {name: 'Euanthe', pronoun: ['she', 'her'], possessive: 'her'},
-        {name: 'Korinna', pronoun: ['she', 'her'], possessive: 'her'},
-        {name: 'Kallias', pronoun: ['he', 'him'], possessive: 'his'}
+        {name: 'Hilarion', gender: 'm'},
+        {name: 'Euanthe', gender: 'f'},
+        {name: 'Korinna', gender: 'f'},
+        {name: 'Kallias', gender: 'm'}
     ]
 };
 
+const people = ['heroes', 'gods', 'mortals'];
+
 const numGenerator = numOptions => Math.floor(Math.random() * numOptions);
+
+const engender = (person) => {
+    if (person.gender === 'f') {
+        person.pronoun = ['she', 'her'];
+        person.possessive = 'her';
+        person.suffix = 'dess';
+    } else {
+        person.pronoun = ['he', 'him'];
+        person.possessive = 'his';
+        person.suffix ='';
+    }
+    return person;
+};
 
 const pickFrom = list => {
     const index = numGenerator(choices[list].length);
-    return choices[list][index];
+    let choice = choices[list][index];
+    if (people.includes(list)) {
+        choice = engender(choice);
+    }
+    return choice;
 };
 
 const creatureMyth = () => {
     const hero = pickFrom('heroes');
     const city = pickFrom('cities');
     const creature = pickFrom('creatures');
-    const template = `\n${hero} and the ${creature}\n\n`+
-    `The great hero ${hero} was traveling near the city of ${city} when he `+
+    const template = `\n${hero.name} and the ${creature}\n\n`+
+    `The great hero ${hero.name} was traveling near the city of ${city} when he `+
     `heard that the city was being menaced by a vicious ${creature}. The `+
     `${creature} would lurk at the outskirts of the city and eat anyone who `+
-    `dared to come near. But ${hero} was not deterred and set out to confront`+
+    `dared to come near. But ${hero.name} was not deterred and set out to confront`+
     ` the ${creature}. They fought a great battle! But through his strength `+
-    `and cunning ${hero} was able to slay the beast. The citizens of ${city} `+
-    `were grateful and presented ${hero} with a cloak of the ${creature}'s `+
+    `and cunning ${hero.name} was able to slay the beast. The citizens of ${city} `+
+    `were grateful and presented ${hero.name} with a cloak of the ${creature}'s `+
     `hide to wear. To this day the area around ${city} is sometimes called `+
-    `the land of ${hero}.`;
+    `the land of ${hero.name}.`;
     return template;
 };
 
